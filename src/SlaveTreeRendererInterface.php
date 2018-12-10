@@ -28,5 +28,5 @@ interface SlaveTreeRendererInterface
      *
      * @return string The rendered result.
      */
-    public function renderTree(RenderNodeInterface $node, TreeRendererInterface $master);
+    public function render(RenderNodeInterface $node, TreeRendererInterface $master);
 }

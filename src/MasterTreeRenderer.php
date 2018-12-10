@@ -53,7 +53,7 @@ class MasterTreeRenderer implements
      *
      * @since [*next-version*]
      */
-    public function renderTree(RenderNodeInterface $node, $type = null)
+    public function render(RenderNodeInterface $node, $type = null)
     {
         $key = empty($type) ? $node->getRenderType() : $type;
 
@@ -71,7 +71,7 @@ class MasterTreeRenderer implements
         }
 
         try {
-            return $slave->renderTree($node, $this);
+            return $slave->render($node, $this);
         } catch (InvalidArgumentException $iaExc) {
             throw new CouldNotRenderTreeException(
                 $this->__('The slave renderer for type "%s" cannot render the node instance"', [$key]),

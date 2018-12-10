@@ -67,7 +67,7 @@ class MasterTreeRendererTest extends PHPUnit_Framework_TestCase
 
         $slave = $this->getMockForAbstractClass('RebelCode\Tree\Rendering\SlaveTreeRendererInterface');
         $slave->expects($this->once())
-              ->method('renderTree')
+              ->method('render')
               ->with($node, $subject)
               ->willReturn($expected);
 
@@ -78,7 +78,7 @@ class MasterTreeRendererTest extends PHPUnit_Framework_TestCase
 
         try {
             /* @var $node RenderNodeInterface|MockObject */
-            $actual = $subject->renderTree($node);
+            $actual = $subject->render($node);
 
             $this->assertEquals($expected, $actual);
         } catch (CouldNotRenderTreeException $e) {
@@ -109,7 +109,7 @@ class MasterTreeRendererTest extends PHPUnit_Framework_TestCase
 
         try {
             /* @var $node RenderNodeInterface|MockObject */
-            $subject->renderTree($node);
+            $subject->render($node);
 
             $this->fail('Test subject should have thrown a CouldNotRenderTreeException');
         } catch (CouldNotRenderTreeException $cnrte) {
@@ -144,7 +144,7 @@ class MasterTreeRendererTest extends PHPUnit_Framework_TestCase
 
         try {
             /* @var $node RenderNodeInterface|MockObject */
-            $subject->renderTree($node);
+            $subject->render($node);
 
             $this->fail('Test subject should have thrown a RuntimeException');
         } catch (RuntimeException $cnrte) {
@@ -172,7 +172,7 @@ class MasterTreeRendererTest extends PHPUnit_Framework_TestCase
 
         $slave = $this->getMockForAbstractClass('RebelCode\Tree\Rendering\SlaveTreeRendererInterface');
         $slave->expects($this->once())
-              ->method('renderTree')
+              ->method('render')
               ->with($node, $subject)
               ->willThrowException($prev = new InvalidArgumentException());
 
@@ -183,7 +183,7 @@ class MasterTreeRendererTest extends PHPUnit_Framework_TestCase
 
         try {
             /* @var $node RenderNodeInterface|MockObject */
-            $subject->renderTree($node);
+            $subject->render($node);
 
             $this->fail('Test subject should have thrown a CouldNotRenderTreeException');
         } catch (CouldNotRenderTreeException $cnrte) {
@@ -213,7 +213,7 @@ class MasterTreeRendererTest extends PHPUnit_Framework_TestCase
 
         $slave = $this->getMockForAbstractClass('RebelCode\Tree\Rendering\SlaveTreeRendererInterface');
         $slave->expects($this->once())
-              ->method('renderTree')
+              ->method('render')
               ->with($node, $subject)
               ->willThrowException($prev = new RuntimeException());
 
@@ -224,7 +224,7 @@ class MasterTreeRendererTest extends PHPUnit_Framework_TestCase
 
         try {
             /* @var $node RenderNodeInterface|MockObject */
-            $subject->renderTree($node);
+            $subject->render($node);
 
             $this->fail('Test subject should have thrown a RuntimeException');
         } catch (RuntimeException $rte) {
