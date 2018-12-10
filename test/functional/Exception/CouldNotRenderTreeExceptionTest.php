@@ -4,6 +4,7 @@ namespace RebelCode\Tree\Rendering\FuncTest\Exception;
 
 use Exception;
 use PHPUnit_Framework_MockObject_MockObject as MockObject;
+use PHPUnit_Framework_TestCase;
 use RebelCode\Tree\Rendering\Exception\CouldNotRenderTreeException;
 use RebelCode\Tree\Rendering\RenderNodeInterface;
 use RebelCode\Tree\Rendering\TreeRendererInterface;
@@ -13,7 +14,7 @@ use RebelCode\Tree\Rendering\TreeRendererInterface;
  *
  * @since [*next-version*]
  */
-class CouldNotRenderTreeExceptionTest extends \PHPUnit_Framework_TestCase
+class CouldNotRenderTreeExceptionTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Tests the constructor to assert whether the values are correctly set and later retrieved via getter methods.
