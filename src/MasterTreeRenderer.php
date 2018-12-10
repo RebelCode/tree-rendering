@@ -60,28 +60,26 @@ class MasterTreeRenderer implements
         try {
             /* @var $slave SlaveTreeRendererInterface */
             $slave = $this->slaves->get($key);
-        } catch (NotFoundExceptionInterface $nfException) {
+        } catch (NotFoundExceptionInterface $nfExc) {
             throw new CouldNotRenderTreeException(
-                $this->__('No slave renderer was found that could render nodes of type "%s"', [$key]),
-                null, $nfException, $this, $node
+                $this->__('Could not find a slave renderer for type "%s"', [$key]), null, $nfExc, $this, $node
             );
-        } catch (ContainerExceptionInterface $cException) {
+        } catch (ContainerExceptionInterface $cExc) {
             throw new RuntimeException(
-                $this->__('An error occurred while trying to render the tree node'), null, $cException
+                $this->__('An error occurred while trying to render the tree node'), null, $cExc
             );
         }
 
         try {
             return $slave->renderTree($node, $this);
-        } catch (InvalidArgumentException $iaException) {
+        } catch (InvalidArgumentException $iaExc) {
             throw new CouldNotRenderTreeException(
-                $this->__('The "%s" slave renderer cannot render the given tree node instance', [$key]),
-                null, $iaException, $this, $node
+                $this->__('The slave renderer for type "%s" cannot render the node instance"', [$key]),
+                null, $iaExc, $this, $node
             );
         } catch (RuntimeException $rtException) {
             throw new RuntimeException(
-                $this->__('A "%s" slave renderer encountered an error while trying to render the tree node', [$key]),
-                null, $rtException
+                $this->__('The slave renderer for type "%s" encountered an error', [$key]), null, $rtException
             );
         }
     }
