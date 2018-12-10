@@ -51,4 +51,28 @@ class CouldNotRenderTreeException extends Exception
         $this->renderer = $renderer;
         $this->node     = $node;
     }
+
+    /**
+     * Retrieves the tree renderer that failed to render.
+     *
+     * @since [*next-version*]
+     *
+     * @return TreeRendererInterface|null The tree renderer instance, if any.
+     */
+    public function getTreeRenderer()
+    {
+        return $this->renderer;
+    }
+
+    /**
+     * Retrieves the render node that failed to be rendered.
+     *
+     * @since [*next-version*]
+     *
+     * @return RenderNodeInterface|null The render node instance, if any.
+     */
+    public function getRenderNode()
+    {
+        return $this->node;
+    }
 }
