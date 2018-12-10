@@ -1,6 +1,6 @@
 {
     "name": "rebelcode/tree-rendering",
-    "description": "A PHP library for rendering all kinds of trees.",
+    "description": "A PHP library for rendering trees and other similar hierarchies.",
     "type": "library",
     "license": "GPL-3.0",
     "authors": [
