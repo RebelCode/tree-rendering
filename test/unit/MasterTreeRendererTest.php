@@ -56,7 +56,7 @@ class MasterTreeRendererTest extends PHPUnit_Framework_TestCase
     public function testRenderTree()
     {
         /* @var $cntr MockObject|ContainerInterface */
-        $cntr    = $this->getMockForAbstractClass('Psr\Container\ContainerInterface');
+        $cntr = $this->getMockForAbstractClass('Psr\Container\ContainerInterface');
         $subject = new MasterTreeRenderer($cntr);
 
         $expected = uniqid('expected-render-result');
@@ -82,7 +82,7 @@ class MasterTreeRendererTest extends PHPUnit_Framework_TestCase
 
             $this->assertEquals($expected, $actual);
         } catch (CouldNotRenderTreeException $e) {
-            $this->fail('Test subject threw an exception: ' . $e->getMessage());
+            $this->fail('Test subject threw an exception: '.$e->getMessage());
         }
     }
 
@@ -95,7 +95,7 @@ class MasterTreeRendererTest extends PHPUnit_Framework_TestCase
     public function testRenderTreeNoSlave()
     {
         /* @var $cntr MockObject|ContainerInterface */
-        $cntr    = $this->getMockForAbstractClass('Psr\Container\ContainerInterface');
+        $cntr = $this->getMockForAbstractClass('Psr\Container\ContainerInterface');
         $subject = new MasterTreeRenderer($cntr);
 
         $type = uniqid('render-type');
@@ -130,7 +130,7 @@ class MasterTreeRendererTest extends PHPUnit_Framework_TestCase
     public function testRenderTreeContainerException()
     {
         /* @var $cntr MockObject|ContainerInterface */
-        $cntr    = $this->getMockForAbstractClass('Psr\Container\ContainerInterface');
+        $cntr = $this->getMockForAbstractClass('Psr\Container\ContainerInterface');
         $subject = new MasterTreeRenderer($cntr);
 
         $type = uniqid('render-type');
@@ -163,7 +163,7 @@ class MasterTreeRendererTest extends PHPUnit_Framework_TestCase
     public function testRenderTreeSlaveInvalidArgumentException()
     {
         /* @var $cntr MockObject|ContainerInterface */
-        $cntr    = $this->getMockForAbstractClass('Psr\Container\ContainerInterface');
+        $cntr = $this->getMockForAbstractClass('Psr\Container\ContainerInterface');
         $subject = new MasterTreeRenderer($cntr);
 
         $type = uniqid('render-type');
@@ -204,7 +204,7 @@ class MasterTreeRendererTest extends PHPUnit_Framework_TestCase
     public function testRenderTreeSlaveRuntimeException()
     {
         /* @var $cntr MockObject|ContainerInterface */
-        $cntr    = $this->getMockForAbstractClass('Psr\Container\ContainerInterface');
+        $cntr = $this->getMockForAbstractClass('Psr\Container\ContainerInterface');
         $subject = new MasterTreeRenderer($cntr);
 
         $type = uniqid('render-type');

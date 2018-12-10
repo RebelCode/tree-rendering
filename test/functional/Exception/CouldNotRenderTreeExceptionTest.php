@@ -23,11 +23,11 @@ class CouldNotRenderTreeExceptionTest extends PHPUnit_Framework_TestCase
      */
     public function testConstructor()
     {
-        $message  = uniqid('message-');
-        $code     = rand();
+        $message = uniqid('message-');
+        $code = rand();
         $previous = new Exception();
         $renderer = $this->getMockForAbstractClass('RebelCode\Tree\Rendering\TreeRendererInterface');
-        $node     = $this->getMockForAbstractClass('RebelCode\Tree\Rendering\RenderNodeInterface');
+        $node = $this->getMockForAbstractClass('RebelCode\Tree\Rendering\RenderNodeInterface');
 
         /* @var $renderer MockObject|TreeRendererInterface */
         /* @var $node MockObject|RenderNodeInterface */
@@ -47,10 +47,10 @@ class CouldNotRenderTreeExceptionTest extends PHPUnit_Framework_TestCase
      */
     public function testConstructorNullTreeRenderer()
     {
-        $message  = uniqid('message-');
-        $code     = rand();
+        $message = uniqid('message-');
+        $code = rand();
         $previous = new Exception();
-        $node     = $this->getMockForAbstractClass('RebelCode\Tree\Rendering\RenderNodeInterface');
+        $node = $this->getMockForAbstractClass('RebelCode\Tree\Rendering\RenderNodeInterface');
 
         /* @var $node MockObject|RenderNodeInterface */
         $subject = new CouldNotRenderTreeException($message, $code, $previous, null, $node);
@@ -69,8 +69,8 @@ class CouldNotRenderTreeExceptionTest extends PHPUnit_Framework_TestCase
      */
     public function testConstructorNullRenderNode()
     {
-        $message  = uniqid('message-');
-        $code     = rand();
+        $message = uniqid('message-');
+        $code = rand();
         $previous = new Exception();
         $renderer = $this->getMockForAbstractClass('RebelCode\Tree\Rendering\TreeRendererInterface');
 
@@ -91,8 +91,8 @@ class CouldNotRenderTreeExceptionTest extends PHPUnit_Framework_TestCase
      */
     public function testConstructorNullTreeRendererAndRenderNode()
     {
-        $message  = uniqid('message-');
-        $code     = rand();
+        $message = uniqid('message-');
+        $code = rand();
         $previous = new Exception();
 
         $subject = new CouldNotRenderTreeException($message, $code, $previous, null, null);
